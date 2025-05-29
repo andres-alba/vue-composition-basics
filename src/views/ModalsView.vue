@@ -1,7 +1,9 @@
 <template>
   <div class="modals">
     <h1>Modals</h1>
-    <Modal v-if="showModal" title="My modal title (via prop)"> <p>Lorem psum dolor sit amet</p></Modal>
+    <Modal v-if="showModal" @hideModal="showModal = false" title="My modal title (via prop)">
+      <p>Lorem psum dolor sit amet</p></Modal
+    >
     <button @click="showModal = true">Show modal</button>
   </div>
 </template>
