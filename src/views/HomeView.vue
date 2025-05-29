@@ -11,6 +11,10 @@
       <button @click="increaseCounter(2)" class="btn">++</button>
     </div>
     <p>This counter is {{ oddOrEven }}</p>
+    <div class="edit">
+      <h4>Edit counter title:</h4>
+      <input v-model="counterData.title" type="text" v-autofocus />
+    </div>
   </div>
 
   <div class="edit">
@@ -20,7 +24,8 @@
 </template>
 
 <script setup>
-import { reactive, computed, watch } from 'vue'
+import { reactive, computed, watch, onMounted } from 'vue'
+import { vAutofocus } from '@/directives/vAutofocus'
 
 const appTitle = 'My counter app'
 
@@ -50,6 +55,10 @@ const increaseCounter = (amount, e) => {
 const decreaseCounter = (amount) => {
   counterData.count -= amount
 }
+
+onMounted(() => {
+  console.log('do stuff when its mounted')
+})
 </script>
 
 <style>
